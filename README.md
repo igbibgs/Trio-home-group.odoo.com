@@ -1,1 +1,1 @@
-# rio-home-group1.odoo.com
+# Trio-home-group1.odoo.com
