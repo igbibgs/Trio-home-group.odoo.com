@@ -1,0 +1,4 @@
+[submodule "igbibgs/Trio-home-group.odoo.com"]
+	path = igbibgs/Trio-home-group.odoo.com
+	url = git@github.com:igbibgs/Trio-home-group.odoo.com.git
+	branch = Master
