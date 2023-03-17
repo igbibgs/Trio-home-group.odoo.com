@@ -1,0 +1,9 @@
+[submodule "igbibgs/Trio-home-group.odoo.com"]
+	path = igbibgs/Trio-home-group.odoo.com
+	url = git@github.com:igbibgs/Trio-home-group.odoo.com.git
+	branch = Master
+
+[submodule "igbibgs/PO-ADVPAY"]
+	path = igbibgs/PO-ADVPAY
+	url = git@github.com:igbibgs/Trio-home-group.odoo.com.git
+	branch = Master
