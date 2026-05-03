@@ -2,17 +2,17 @@
 <odoo>
     <data>
         <record model="ir.ui.view" id="advance_payment_wizard_form">
-            <field name="name">advacnce.payment.form</field>
+            <field name="name">advance.payment.form</field>
             <field name="model">advance.payment</field>
             <field name="arch" type="xml">
-                <form string="Advance payment">
+                <form string="Advance Payment">
                     <group>
                         <group>
-                            <field name="journal_id" widget="selection" domain="[('type','in',['bank','cash'])]"/>
+                            <field name="journal_id" domain="[('type','in',['bank','cash'])]"/>
                             <field name="pay_amount"/>
                         </group>
                         <group>
-                            <field name="date_planned" date="date_order"/>
+                            <field name="date_planned"/>
                         </group>
                     </group>
                     <footer>

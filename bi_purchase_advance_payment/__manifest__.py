@@ -3,7 +3,7 @@
 
 {
     'name': 'Advance Down Payment on Purchase Order',
-    'version': '16.0.0.1',
+    'version': '19.0.0.1',
     'category': 'Purchase',
     'summary': 'Purchase Down payment for purchase order advance payment purchase advance payment purchase order advance payment for purchase advance payment for purchase order down payment advance down payment for purchase order add advance payment from purchase order',
     'description': """
