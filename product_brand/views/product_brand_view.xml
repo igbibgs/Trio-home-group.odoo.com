@@ -40,7 +40,7 @@
                                 name="products_count"
                                 widget="statinfo"
                                 string="Products"
-                                context="{'default_product_brand_id': active_id}"
+                                context="{'default_product_brand_id': id}"
                             />
                         </button>
                     </div>
