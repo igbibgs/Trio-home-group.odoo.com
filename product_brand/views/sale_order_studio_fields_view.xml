@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Add Studio custom fields to Sale Order list view -->
+    <!-- Add Studio custom fields to Sale Order list view (quotes) -->
     <record id="view_quotation_tree_studio_fields" model="ir.ui.view">
         <field name="name">sale.order.list.studio.fields</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_quotation_tree" />
+        <field name="priority">100</field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='partner_id']" position="after">
+            <xpath expr="//field[@name='amount_total']" position="after">
                 <field name="x_studio_customer_po_" string="Customer PO #" optional="show" />
                 <field name="x_studio_account_" string="Account #" optional="show" />
                 <field name="x_studio_dept_" string="Dept #" optional="show" />
@@ -19,7 +20,36 @@
                 <field name="x_studio_total_inner_cartons" string="Total Inner Cartons" optional="show" />
                 <field name="x_studio_total_master_cartons" string="Total Master Cartons" optional="show" />
                 <field name="x_studio_total_inner_box_cube" string="Total Inner Box Cube" optional="show" />
+                <field name="x_studio_total_master_cube" string="Total Master Cube" optional="show" />
                 <field name="x_studio_total_cube" string="Total Cube" optional="show" />
+                <field name="x_studio_total_weight" string="Total Weight" optional="show" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add Studio custom fields to Sale Order list view (orders) -->
+    <record id="view_order_tree_studio_fields" model="ir.ui.view">
+        <field name="name">sale.order.list.orders.studio.fields</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="x_studio_customer_po_" string="Customer PO #" optional="show" />
+                <field name="x_studio_account_" string="Account #" optional="show" />
+                <field name="x_studio_dept_" string="Dept #" optional="show" />
+                <field name="x_studio_bl_invoice_" string="BL# / Invoice #" optional="show" />
+                <field name="x_studio_ship_via" string="Ship Via" optional="show" />
+                <field name="x_studio_free_on_board" string="Free on Board" optional="show" />
+                <field name="x_studio_invoice_date" string="Invoice Date" optional="show" />
+                <field name="x_studio_total_pieces" string="Total Pieces" optional="show" />
+                <field name="x_studio_total_cartons" string="Total Cartons" optional="show" />
+                <field name="x_studio_total_inner_cartons" string="Total Inner Cartons" optional="show" />
+                <field name="x_studio_total_master_cartons" string="Total Master Cartons" optional="show" />
+                <field name="x_studio_total_inner_box_cube" string="Total Inner Box Cube" optional="show" />
+                <field name="x_studio_total_master_cube" string="Total Master Cube" optional="show" />
+                <field name="x_studio_total_cube" string="Total Cube" optional="show" />
+                <field name="x_studio_total_weight" string="Total Weight" optional="show" />
             </xpath>
         </field>
     </record>
