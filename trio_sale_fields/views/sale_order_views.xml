@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================================================
+         Sale Order FORM view - restore Studio custom fields
+         Targets verified against v19 sale_order_views.xml structure
+    ============================================================ -->
+    <record id="view_order_form_trio_fields" model="ir.ui.view">
+        <field name="name">sale.order.form.trio.fields</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- 1. Ship Via + Free on Board inside Order Details group -->
+            <xpath expr="//group[@name='order_details']" position="inside">
+                <field name="x_studio_ship_via" string="Ship Via"/>
+                <field name="x_studio_free_on_board" string="Free on Board"/>
+            </xpath>
+
+            <!-- 2. Total fields after Terms and Conditions (note field) -->
+            <xpath expr="//field[@name='note']" position="after">
+                <group string="Order Totals">
+                    <field name="x_studio_total_pieces" string="Total Pieces"/>
+                    <field name="x_studio_total_cartons" string="Total Cartons"/>
+                    <field name="x_studio_total_master_cartons" string="Total Master Cartons"/>
+                    <field name="x_studio_total_inner_cartons" string="Total Inner Cartons"/>
+                    <field name="x_studio_total_master_cube" string="Total Master Cube"/>
+                    <field name="x_studio_total_inner_box_cube" string="Total Inner Box Cube"/>
+                    <field name="x_studio_total_cube" string="Total Cube"/>
+                    <field name="x_studio_total_weight" string="Total Weight"/>
+                </group>
+            </xpath>
+
+            <!-- 3. Invoice/shipping info after invoice_status in Other Info tab -->
+            <xpath expr="//page[@name='other_information']//group[@name='sale_info']" position="inside">
+                <field name="x_studio_invoice_date" string="Invoice Date" widget="date"/>
+                <field name="x_studio_bl_invoice_" string="BL# / Invoice #"/>
+                <field name="x_studio_account_" string="ACCOUNT #"/>
+                <field name="x_studio_customer_po_" string="Customer PO #"/>
+                <field name="x_studio_dept_" string="Dept #"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- ============================================================
+         Sale Order LINE list view - restore order line Studio fields
+    ============================================================ -->
+    <record id="view_order_line_trio_fields" model="ir.ui.view">
+        <field name="name">sale.order.line.list.trio.fields</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Add master_carton and inner_carton columns to order line list -->
+            <xpath expr="//field[@name='order_line']/list//field[@name='product_uom_qty']" position="after">
+                <field name="x_studio_master_carton" string="Master Carton" optional="show"/>
+                <field name="x_studio_inner_carton" string="Inner Carton" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ============================================================
+         Sales Orders LIST view - restore Studio custom fields
+    ============================================================ -->
+    <record id="view_order_list_trio_fields" model="ir.ui.view">
+        <field name="name">sale.order.list.trio.fields</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="x_studio_customer_po_" string="Customer PO #" optional="show"/>
+                <field name="x_studio_account_" string="Account #" optional="show"/>
+                <field name="x_studio_dept_" string="Dept #" optional="show"/>
+                <field name="x_studio_bl_invoice_" string="BL# / Invoice #" optional="show"/>
+                <field name="x_studio_ship_via" string="Ship Via" optional="show"/>
+                <field name="x_studio_total_pieces" string="Total Pieces" optional="show"/>
+                <field name="x_studio_total_cartons" string="Total Cartons" optional="show"/>
+                <field name="x_studio_total_inner_cartons" string="Total Inner Cartons" optional="show"/>
+                <field name="x_studio_total_master_cartons" string="Total Master Cartons" optional="show"/>
+                <field name="x_studio_total_cube" string="Total Cube" optional="show"/>
+                <field name="x_studio_total_weight" string="Total Weight" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
